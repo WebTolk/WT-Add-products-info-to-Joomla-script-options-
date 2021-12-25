@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="plugin" group="jshoppingproducts" method="upgrade">
+	<name>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>08/09/2021</creationDate>
+	<copyright>(c) 2021 Sergey Tolkachyov</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>https://web-tolk.ru</authorUrl>
+	<version>1.1.0</version>
+	<description>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC</description>
+	<scriptfile>script.php</scriptfile>
+	<files>
+		<filename plugin="wt_add_products_info_to_joomla_script_options">wt_add_products_info_to_joomla_script_options.php</filename>
+		<folder>language</folder>
+		<folder>fields</folder>
+	</files>
+		<languages folder="language" client="administrator">
+        <language tag="en-GB">en-GB/en-GB.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
+    </languages>
+	<config>
+		 <fields name="params">
+            <fieldset name="basic">
+				<field addfieldpath="plugins/jshoppingproducts/wt_add_products_info_to_joomla_script_options/fields" type="plugininfo" name="plugininfo"/>
+				<field type="spacer" label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW"/>
+				<field type="radio"
+					   name="product_view_show_product_name"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_NAME"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_image"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_IMAGE"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_ean"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_EAN"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_manufacturer_code"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_MANUFACTURER_CODE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_PRICE"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_zero_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_ZERO_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno" showon="product_view_show_product_price:1">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_old_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_OLD_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_min_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_MIN_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_quantity"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_QUANTITY"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="product_view_show_product_delivery_time"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW_SHOW_PRODUCT_DELIVERY_TIME"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+
+				<field type="spacer" label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW"/>
+				<field type="radio"
+					   name="category_view_show_product_name"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_NAME"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_image"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_IMAGE"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_ean"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_EAN"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_manufacturer_code"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_MANUFACTURER_CODE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_PRICE"
+					   default="1"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_zero_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_ZERO_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno" showon="category_view_show_product_price:1">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_old_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_OLD_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_min_price"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_MIN_PRICE"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_quantity"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_QUANTITY"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field type="radio"
+					   name="category_view_show_product_delivery_time"
+					   label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_CATEGORY_VIEW_SHOW_PRODUCT_DELIVERY_TIME"
+					   default="0"
+					   class="btn-group btn-group-yesno">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+        <server type="extension" name="WebTolkUpdateServer"><![CDATA[	https://web-tolk.ru/component/swjprojects/jupdate.html?element=wt_add_products_info_to_joomla_script_options ]]></server>
+    </updateservers>
+</extension>
