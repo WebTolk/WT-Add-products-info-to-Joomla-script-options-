@@ -11,7 +11,10 @@ To create feedback forms in the online store on Joomla JoomShopping, such as:
 - wholesale price request
 - And so on - for all Joomla feedback forms, where you need to specify information about the product.
 
-This plugin is necessary for those who use the professional plugin feedback form - Radical Form - in their work. I wrote more about how to use Radical Form (in Russian) in my blog.
+This plugin is necessary for those who use the professional plugin feedback form - [Radical Form on JED](https://extensions.joomla.org/extension/radicalform/), [Radical Form on GitHub](https://github.com/Delo-Design/radicalform) - in their work. 
+[Tutorial 1 (Russiain language)](https://web-tolk.ru/blog/razrabotka-form-obratnoj-svyazi-dlya-magazinov-na-joomla-3.html?utm_source=github)
+[Tutorial 2 (Russiain language)](https://web-tolk.ru/blog/integratsiya-form-obratnoj-svyazi-i-bitriks24-na-sajte-joomla.html?utm_source=github)
+
 # Why it?
 In order to make a beautiful and informative lead magnet, a feedback form that specifies the specific product in question.
 Webmasters often get data for forms directly from the HTML layout of the site. In the case of a design change, it is easy to damage the structure on which the JS script relies and the feedback form will stop receiving data about the product.
