@@ -9,6 +9,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Version;
 
 
 /*
@@ -26,16 +27,7 @@ use Joomla\CMS\Factory;
 class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends CMSPlugin
 {
 
-	/**
-	 * Class Constructor
-	 * @param object $subject
-	 * @param array $config
-	 */
-	public function __construct( & $subject, $config )
-	{
-		parent::__construct( $subject, $config );
-		$this->loadLanguage();
-	}
+	protected $autoloadLanguage = true;
 
 	/**
 	 * Method to add products info to Joomla scrtipt options to access its via javascript Joomla.getOptions('jshop_products_details')
@@ -48,14 +40,21 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 	 */
 	public function onAfterDisplayProduct(&$product)
 	{
-		$jShopConfig = JSFactory::getConfig();
+		$jversion = new Version();
+		if (version_compare($jversion->getShortVersion(), '4.0', '<')) {
+			// only for Joomla 3.x
+			$jshopConfig = JSFactory::getConfig();
+		} else {
+			// Joomla 4
+			$jshopConfig = \JSFactory::getConfig();
+		}
 
 		$product_info = array();
 		if($this->params->get('product_view_show_product_name',1) == 1){
 			$product_info['product_name'] =  $product->name;
 		}
 		if($this->params->get('product_view_show_product_image',1) == 1){
-			$product_info['product_image_url'] =  $jShopConfig->image_product_live_path.'/'.$product->image;
+			$product_info['product_image_url'] =  $jshopConfig->image_product_live_path.'/'.$product->image;
 		}
 		if($this->params->get('product_view_show_product_ean',1) == 1){
 			$product_info['ean'] =  $product->product_ean;
@@ -67,16 +66,32 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 			$product_info['quantity'] =  $product->product_quantity;
 		}
 		if($this->params->get('product_view_show_product_old_price',1) == 1){
-			$product_info['old_price'] =  formatprice($product->product_old_price);
+			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+			{
+				$product_info['old_price'] = formatprice($product->product_old_price);
+			} else {
+				$product_info['old_price'] = \JSHelper::formatprice($product->product_old_price);
+			}
 		}
 
 		if($this->params->get('product_view_show_product_price',1) == 1 && $this->params->get('product_view_show_product_zero_price',0) == 1){
-			$product_info['price'] = formatprice($product->product_price);
+			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+			{
+				$product_info['price'] = formatprice($product->product_price);
+			} else {
+				$product_info['price'] = \JSHelper::formatprice($product->product_price);
+			}
 		}
 
 
 		if($this->params->get('product_view_show_product_min_price',1) == 1){
-			$product_info['min_price'] =  formatprice($product->min_price);
+			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+			{
+				$product_info['min_price'] = formatprice($product->min_price);
+			} else {
+				$product_info['min_price'] = \JSHelper::formatprice($product->min_price);
+			}
+
 		}
 		if($this->params->get('product_view_show_product_delivery_time',1) == 1){
 			$product_info['delivery_time'] =  $product->delivery_time;
@@ -93,6 +108,8 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 
 	public function onBeforeDisplayProductListView($view, &$productlist)
 	{
+		$jversion = new Version();
+
 		$product_info = array();
 		if(count((array)$productlist->products) > 0){
 		foreach($productlist->products as $product){
@@ -113,22 +130,36 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 				$product_info[$product->product_id]['quantity'] =  $product->product_quantity;
 			}
 			if($this->params->get('category_view_show_product_old_price',1) == 1){
-				$product_info[$product->product_id]['old_price'] =  formatprice($product->product_old_price);
+				if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+				{
+					$product_info[$product->product_id]['old_price'] = formatprice($product->product_old_price);
+				} else {
+					$product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
+				}
 			}
 
 			if($this->params->get('category_view_show_product_price',1) == 1 && $this->params->get('category_view_show_product_zero_price',0) == 1){
-				$product_info[$product->product_id]['price'] = formatprice($product->product_price);
+				if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+				{
+					$product_info[$product->product_id]['price'] = formatprice($product->product_price);
+				} else {
+					$product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
+				}
 			}
 
 			if($this->params->get('category_view_show_product_min_price',1) == 1){
-				$product_info[$product->product_id]['min_price'] =  formatprice($product->min_price);
+				if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+				{
+					$product_info[$product->product_id]['min_price'] = formatprice($product->min_price);
+				} else {
+					$product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
+				}
 			}
 			if($this->params->get('category_view_show_product_delivery_time',1) == 1){
 				$product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
 			}
 		}
-		$doc = Factory::getDocument();
-		$doc->addScriptOptions('jshop_products_details',$product_info);
+		Factory::getDocument()->addScriptOptions('jshop_products_details',$product_info);
 		}//if $productlist->products > 0
 	}
 
@@ -140,6 +171,7 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 	 * @since 1.0.1
 	 */
 	public function onBeforeDisplaywtjshoppingfavoritesView($view){
+		$jversion = new Version();
 		$product_info = array();
 		if(count((array)$view->rows) > 0){
 			foreach($view->rows as $product){
@@ -160,22 +192,36 @@ class PlgJshoppingproductsWt_add_products_info_to_joomla_script_options extends 
 					$product_info[$product->product_id]['quantity'] =  $product->product_quantity;
 				}
 				if($this->params->get('category_view_show_product_old_price',1) == 1){
-					$product_info[$product->product_id]['old_price'] =  formatprice($product->product_old_price);
+					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+					{
+						$product_info[$product->product_id]['old_price'] = formatprice($product->product_old_price);
+					} else {
+						$product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
+					}
 				}
 
 				if($this->params->get('category_view_show_product_price',1) == 1 && $this->params->get('category_view_show_product_zero_price',0) == 1){
-					$product_info[$product->product_id]['price'] = formatprice($product->product_price);
+					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+					{
+						$product_info[$product->product_id]['price'] = formatprice($product->product_price);
+					} else {
+						$product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
+					}
 				}
 
 				if($this->params->get('category_view_show_product_min_price',1) == 1){
-					$product_info[$product->product_id]['min_price'] =  formatprice($product->min_price);
+					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
+					{
+						$product_info[$product->product_id]['min_price'] = formatprice($product->min_price);
+					} else {
+						$product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
+					}
 				}
 				if($this->params->get('category_view_show_product_delivery_time',1) == 1){
 					$product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
 				}
 			}
-			$doc = Factory::getDocument();
-			$doc->addScriptOptions('jshop_products_details',$product_info);
+			Factory::getDocument()->addScriptOptions('jshop_products_details',$product_info);
 		}
 
 	}
