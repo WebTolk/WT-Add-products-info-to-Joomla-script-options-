@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9" type="plugin" group="jshoppingproducts" method="upgrade">
+<extension type="plugin" group="jshoppingproducts" method="upgrade">
 	<name>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS</name>
 	<author>Sergey Tolkachyov</author>
 	<creationDate>08/09/2021</creationDate>
@@ -10,21 +10,21 @@
 	<version>1.1.0</version>
 	<description>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC</description>
 	<scriptfile>script.php</scriptfile>
+	<namespace path="src">WT\Plugin\Jshoppingproducts\WtAddProductsInfoToJoomlaScriptOptions</namespace>
 	<files>
-		<filename plugin="wt_add_products_info_to_joomla_script_options">wt_add_products_info_to_joomla_script_options.php</filename>
-		<folder>language</folder>
-		<folder>fields</folder>
+		<folder plugin="wt_add_products_info_to_joomla_script_options">src</folder>
+		<folder>services</folder>
 	</files>
-		<languages folder="language" client="administrator">
-        <language tag="en-GB">en-GB/en-GB.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
-        <language tag="en-GB">en-GB/en-GB.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
+	<languages folder="language" client="administrator">
+        <language tag="en-GB">en-GB/plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
+        <language tag="ru-RU">ru-RU/plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
+        <language tag="en-GB">en-GB/plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
+        <language tag="ru-RU">ru-RU/plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.sys.ini</language>
     </languages>
 	<config>
 		 <fields name="params">
             <fieldset name="basic">
-				<field addfieldpath="plugins/jshoppingproducts/wt_add_products_info_to_joomla_script_options/fields" type="plugininfo" name="plugininfo"/>
+				<field addfieldprefix="WT\Plugin\Jshoppingproducts\Fields" type="plugininfo" name="plugininfo"></field>
 				<field type="spacer" label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW"/>
 				<field type="radio"
 					   name="product_view_show_product_name"
