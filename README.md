@@ -1,6 +1,6 @@
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github) [![Status](https://img.shields.io/badge/Status-stable-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.x-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![JoomShoppingVersion](https://img.shields.io/badge/JoomShopping-3.8.x-important.svg)]() [![JoomShoppingVersion](https://img.shields.io/badge/JoomShopping-5.x-important.svg)]() [![DocumentationRus](https://img.shields.io/badge/Documentation-rus-blue.svg)](https://web-tolk.ru/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github) [![DocumentationEng](https://img.shields.io/badge/Documentation-eng-blueviolet.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github)
 # WT Add products info to Joomla script options
-Adds JoomShopping product info to Joomla script options. You can access it from javascript via `Joomla.getOptions('jshop_products_details').` Joomla 4 and Joomla 5 (and above) support. Warning! Joomla 3 is no longer supported!
+Adds JoomShopping product info to Joomla script options. You can access it from javascript via `Joomla.getOptions('jshop_products_details').` Joomla 4 and Joomla 5 (and above) support. **Warning! Joomla 3 is no longer supported!**
 
 # What is it and why?
 ## What is it?
