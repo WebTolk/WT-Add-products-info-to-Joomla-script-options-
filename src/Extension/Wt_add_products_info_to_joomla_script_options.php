@@ -2,7 +2,7 @@
 /**
  * @package    WT Add products info to Joomla script options
  * @author     Sergey Tolkachyov info@web-tolk.ru https://web-tolk.ru
- * @copyright  Copyright (C) 2021 Sergey Tolkachyov. All rights reserved.
+ * @copyright  Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.
  * @license    GNU General Public License version 3 or later
  */
 
@@ -10,8 +10,8 @@ namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Document\Document;
 use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Factory;
 use Joomla\Event\SubscriberInterface;
 
 /*
@@ -50,9 +50,9 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
     }
 
     /**
-	 * Method to add products info to Joomla scrtipt options to access its via javascript Joomla.getOptions('jshop_products_details')
+	 * Method to add products info to Joomla script options to access it's via javascript Joomla.getOptions('jshop_products_details')
 	 *
-	 * @param   object  &$product  JoomShopping product
+	 * @param  object  $event  JoomShopping after display product event
 	 *
 	 * @return  void
 	 *
@@ -60,6 +60,7 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 	 */
 	public function onAfterDisplayProduct($event): void
     {
+        /* @var $product object JoomShopping product */
         $product = $event->getArgument(0);
         $jshopConfig = \JSFactory::getConfig();
 
@@ -99,14 +100,22 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 			$product->product_id => $product_info
 		);
 
-		$doc = Factory::getDocument();
-		$doc->addScriptOptions('jshop_products_details',$product_array);
-
+        /* @var $doc Document */
+		$doc = $this->getApplication()->getDocument();
+		$doc->addScriptOptions('jshop_products_details', $product_array);
 	}
 
+    /**
+     * @param object $event JoomShopping before display product list view event
+     *
+     * @return void
+     *
+     * @since 1.0
+     * */
 	public function onBeforeDisplayProductListView($event): void
     {
         $view = $event->getArgument(0);
+        /* @var $productlist object JoomShopping product list view */
         $productlist = $event->getArgument(1);
 
 		$product_info = array();
@@ -143,19 +152,22 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
                     $product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
                 }
             }
-            Factory::getDocument()->addScriptOptions('jshop_products_details',$product_info);
+
+            $this->getApplication()->getDocument()->addScriptOptions('jshop_products_details', $product_info);
 		}//if $productlist->products > 0
 	}
 
 	/**
 	 * Обработка избранных товаров WT JoomShopping Favorites
-	 * @param $view object Объект со списком товаров, общим количеством и т.д.
+	 * @param $event object событие отображения списка товаров
 	 *
+     * @return void
 	 *
 	 * @since 1.0.1
 	 */
 	public function onBeforeDisplaywtjshoppingfavoritesView($event): void
     {
+        /* @var $view object Объект со списком товаров, общим количеством и т.д. */
         $view = $event->getArgument(0);
 		$product_info = array();
 		if(count((array)$view->rows) > 0) {
@@ -191,7 +203,8 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 					$product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
 				}
 			}
-			Factory::getDocument()->addScriptOptions('jshop_products_details',$product_info);
+
+			$this->getApplication()->getDocument()->addScriptOptions('jshop_products_details', $product_info);
 		}
 	}
 }

@@ -2,18 +2,19 @@
 <extension type="plugin" group="jshoppingproducts" method="upgrade">
 	<name>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS</name>
 	<author>Sergey Tolkachyov</author>
-	<creationDate>08/09/2021</creationDate>
-	<copyright>(c) 2021 Sergey Tolkachyov</copyright>
+	<creationDate>28/11/2023</creationDate>
+	<copyright>(c) 2023 Sergey Tolkachyov</copyright>
 	<license>GNU General Public License version 3 or later</license>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<version>1.1.0</version>
+	<version>2.0.0</version>
 	<description>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<namespace path="src">Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options</namespace>
 	<files>
 		<folder plugin="wt_add_products_info_to_joomla_script_options">src</folder>
 		<folder>services</folder>
+		<folder>language</folder>
 	</files>
 	<languages folder="language" client="administrator">
         <language tag="en-GB">en-GB/plg_jshoppingproducts_wt_add_products_info_to_joomla_script_options.ini</language>
@@ -24,7 +25,7 @@
 	<config>
 		 <fields name="params">
             <fieldset name="basic">
-				<field addfieldprefix="Joomla\Plugin\Jshoppingproducts\Fields" type="plugininfo" name="plugininfo"></field>
+				<field addfieldprefix="Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options\Fields" type="plugininfo" name="plugininfo"></field>
 				<field type="spacer" label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW"/>
 				<field type="radio"
 					   name="product_view_show_product_name"

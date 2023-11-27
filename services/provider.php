@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package    WT Add products info to Joomla script options
+ * @author     Sergey Tolkachyov info@web-tolk.ru https://web-tolk.ru
+ * @copyright  Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.
+ * @license    GNU General Public License version 3 or later
+ */
 
 defined('_JEXEC') || die;
 

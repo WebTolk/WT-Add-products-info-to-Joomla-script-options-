@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package    WT Add products info to Joomla script options
+ * @author     Sergey Tolkachyov info@web-tolk.ru https://web-tolk.ru
+ * @copyright  Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.
+ * @license    GNU General Public License version 3 or later
+ */
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -13,6 +19,7 @@ use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 
 return new class () implements ServiceProviderInterface {
+
     public function register(Container $container): void
     {
         $container->set(InstallerScriptInterface::class, new class ($container->get(AdministratorApplication::class)) implements InstallerScriptInterface {
