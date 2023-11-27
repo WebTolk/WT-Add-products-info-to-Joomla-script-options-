@@ -1,17 +1,16 @@
 <?php
 /**
- * @package     WebTolk plugin info field
- * @version     1.0.0
- * @Author 		Sergey Tolkachyov, https://web-tolk.ru
- * @copyright   Copyright (C) 2020 Sergey Tolkachyov
- * @license     GNU/GPL http://www.gnu.org/licenses/gpl-2.0.html
- * @since 		1.0.0
+ * @package    WT Add products info to Joomla script options
+ * @author     Sergey Tolkachyov info@web-tolk.ru https://web-tolk.ru
+ * @copyright  Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.
+ * @license    GNU General Public License version 3 or later
  */
 
-namespace Joomla\Plugin\Jshoppingproducts\Fields;
+namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options\Fields;
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Document\Document;
 use Joomla\CMS\Form\Field\NoteField;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Factory;
@@ -29,7 +28,7 @@ class PlugininfoField extends NoteField
 	 *
 	 * @since   1.7.0
 	 */
-	protected function getInput()
+	protected function getInput(): string
 	{
 		return ' ';
 	}
@@ -39,33 +38,30 @@ class PlugininfoField extends NoteField
 	 *
 	 * @since   1.7.0
 	 */
-	protected function getLabel()
+	protected function getLabel(): string
 	{
-		$doc = Factory::getDocument();
-		$doc->addStyleDeclaration("
-			.wt-b24-plugin-info{
-				box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); 
-				padding:1rem; 
-				margin-bottom: 2rem;
-				display:flex;
-				
-			}
-			.plugin-info-img{
-			    margin-right:auto;
-			    max-width: 100%;
-			}
-			.plugin-info-img svg:hover * {
-				cursor:pointer;
-			}
-		");
+        $data = $this->form->getData();
+        $element = 	$data->get('element');
+        $folder = 	$data->get('folder');
+        $wt_plugin_info = simplexml_load_file(JPATH_SITE."/plugins/".$folder."/".$element."/".$element.".xml");
 
-		$wt_plugin_info = simplexml_load_file(JPATH_SITE."/plugins/jshoppingproducts/wt_add_products_info_to_joomla_script_options/wt_add_products_info_to_joomla_script_options.xml");
+        /* @var $doc Document */
+        $doc = Factory::getApplication()->getDocument();
+        $doc->getWebAssetManager()->addInlineStyle('
+            #web_tolk_link {
+			text-align: center;
+			}
+			#web_tolk_link::before{
+				content: "";
+			}
+        ');
 
-		?>
-		<div class="wt-b24-plugin-info">
-            <div class="plugin-info-img span2 col-12">
-				<a href="https://web-tolk.ru" target="_blank">
-							<svg width="200" height="50" xmlns="http://www.w3.org/2000/svg">
+        return '</div>
+		<div class="card container shadow-sm w-100 p-0">
+			<div class="wt-b24-plugin-info row">
+				<div class="col-2 d-flex justify-content-center align-items-center">
+					<a href="https://web-tolk.ru" target="_blank" id="web_tolk_link" title="Go to https://web-tolk.ru">
+							<svg width="200" height="50" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
 								 <g>
 								  <title>Go to https://web-tolk.ru</title>
 								  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="32" id="svg_3" y="36.085949" x="8.152073" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#0fa2e6">Web</text>
@@ -73,14 +69,18 @@ class PlugininfoField extends NoteField
 								 </g>
 							</svg>
 				</a>
-            </div>
-			<div style="padding: 0px 15px;" class="span10 col-10">
-				<span class="label label-success">v.<?php echo $wt_plugin_info->version; ?></span>
-				<?php echo Text::_("PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC"); ?>
+				</div>
+				<div class="col-10">
+					<div class="card-header bg-white p-1">
+						<span class="badge bg-success">v.' . $wt_plugin_info->version . '</span>
+					</div>
+					<div class="card-body">
+						' . Text::_("PLG_".strtoupper($element)."_DESC") . '
+					</div>
+				</div>
 			</div>
-		</div>
-<?php
-
+		</div><div>
+		';
 	}
 
 	/**
@@ -90,10 +90,9 @@ class PlugininfoField extends NoteField
 	 *
 	 * @since   1.7.0
 	 */
-	protected function getTitle()
+	protected function getTitle(): string
 	{
 		return $this->getLabel();
 	}
-
 }
 ?>
