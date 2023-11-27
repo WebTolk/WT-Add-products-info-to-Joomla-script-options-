@@ -10,7 +10,7 @@
 	<version>1.1.0</version>
 	<description>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC</description>
 	<scriptfile>script.php</scriptfile>
-	<namespace path="src">WT\Plugin\Jshoppingproducts\WtAddProductsInfoToJoomlaScriptOptions</namespace>
+	<namespace path="src">Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options</namespace>
 	<files>
 		<folder plugin="wt_add_products_info_to_joomla_script_options">src</folder>
 		<folder>services</folder>
@@ -24,7 +24,7 @@
 	<config>
 		 <fields name="params">
             <fieldset name="basic">
-				<field addfieldprefix="WT\Plugin\Jshoppingproducts\Fields" type="plugininfo" name="plugininfo"></field>
+				<field addfieldprefix="Joomla\Plugin\Jshoppingproducts\Fields" type="plugininfo" name="plugininfo"></field>
 				<field type="spacer" label="PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_PRODUCT_VIEW"/>
 				<field type="radio"
 					   name="product_view_show_product_name"

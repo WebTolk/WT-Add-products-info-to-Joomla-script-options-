@@ -8,8 +8,7 @@ use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
-use Joomla\Database\DatabaseInterface;
-use WT\Plugin\Jshoppingproducts\WtAddProductsInfoToJoomlaScriptOptions\Extension\WtAddProductsInfoToJoomlaScriptOptions;
+use Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options\Extension\Wt_add_products_info_to_joomla_script_options;
 
 return new class implements ServiceProviderInterface {
 
@@ -25,7 +24,7 @@ return new class implements ServiceProviderInterface {
                 $app = Factory::getApplication();
 
                 /** @var \Joomla\CMS\Plugin\CMSPlugin $plugin */
-                $plugin = new WtAddProductsInfoToJoomlaScriptOptions($subject, $config);
+                $plugin = new Wt_add_products_info_to_joomla_script_options($subject, $config);
                 $plugin->setApplication($app);
 
                 return $plugin;

@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 3 or later
  */
 
-namespace WT\Plugin\Jshoppingproducts\WtAddProductsInfoToJoomlaScriptOptions\Extension;
+namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options\Extension;
 
 defined('_JEXEC') or die;
 
@@ -27,7 +27,7 @@ use Joomla\Event\SubscriberInterface;
  * @package  WT Add products info to Joomla script options
  * @since    1.0
  */
-class WtAddProductsInfoToJoomlaScriptOptions extends CMSPlugin implements SubscriberInterface
+class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements SubscriberInterface
 {
 
 	protected $autoloadLanguage = true;

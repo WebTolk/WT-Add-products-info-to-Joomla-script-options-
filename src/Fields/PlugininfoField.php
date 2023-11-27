@@ -8,7 +8,7 @@
  * @since 		1.0.0
  */
 
-namespace WT\Plugin\Jshoppingproducts\Fields;
+namespace Joomla\Plugin\Jshoppingproducts\Fields;
 
 defined('_JEXEC') or die;
 
