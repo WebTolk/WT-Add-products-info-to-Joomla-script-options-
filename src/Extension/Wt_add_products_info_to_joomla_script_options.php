@@ -12,7 +12,6 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Version;
 use Joomla\Event\SubscriberInterface;
 
 /*
@@ -62,7 +61,6 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 	public function onAfterDisplayProduct($event): void
     {
         $product = $event->getArgument(0);
-		$jversion = new Version();
         $jshopConfig = \JSFactory::getConfig();
 
 		$product_info = array();
@@ -82,32 +80,16 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 			$product_info['quantity'] =  $product->product_quantity;
 		}
 		if ($this->params->get('product_view_show_product_old_price',1) == 1) {
-			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-			{
-				$product_info['old_price'] = formatprice($product->product_old_price);
-			} else {
-				$product_info['old_price'] = \JSHelper::formatprice($product->product_old_price);
-			}
+			$product_info['old_price'] = \JSHelper::formatprice($product->product_old_price);
 		}
 
 		if ($this->params->get('product_view_show_product_price',1) == 1 && $this->params->get('product_view_show_product_zero_price',0) == 1) {
-			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-			{
-				$product_info['price'] = formatprice($product->product_price);
-			} else {
-				$product_info['price'] = \JSHelper::formatprice($product->product_price);
-			}
+			$product_info['price'] = \JSHelper::formatprice($product->product_price);
 		}
 
 
 		if ($this->params->get('product_view_show_product_min_price',1) == 1) {
-			if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-			{
-				$product_info['min_price'] = formatprice($product->min_price);
-			} else {
-				$product_info['min_price'] = \JSHelper::formatprice($product->min_price);
-			}
-
+			$product_info['min_price'] = \JSHelper::formatprice($product->min_price);
 		}
 		if($this->params->get('product_view_show_product_delivery_time',1) == 1){
 			$product_info['delivery_time'] =  $product->delivery_time;
@@ -126,7 +108,6 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
     {
         $view = $event->getArgument(0);
         $productlist = $event->getArgument(1);
-		$jversion = new Version();
 
 		$product_info = array();
 		if (count((array)$productlist->products) > 0) {
@@ -148,30 +129,15 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
                     $product_info[$product->product_id]['quantity'] =  $product->product_quantity;
                 }
                 if ($this->params->get('category_view_show_product_old_price',1) == 1) {
-                    if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-                    {
-                        $product_info[$product->product_id]['old_price'] = formatprice($product->product_old_price);
-                    } else {
-                        $product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
-                    }
+                    $product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
                 }
 
                 if ($this->params->get('category_view_show_product_price',1) == 1 && $this->params->get('category_view_show_product_zero_price',0) == 1) {
-                    if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-                    {
-                        $product_info[$product->product_id]['price'] = formatprice($product->product_price);
-                    } else {
-                        $product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
-                    }
+                    $product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
                 }
 
                 if ($this->params->get('category_view_show_product_min_price',1) == 1) {
-                    if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-                    {
-                        $product_info[$product->product_id]['min_price'] = formatprice($product->min_price);
-                    } else {
-                        $product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
-                    }
+                    $product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
                 }
                 if ($this->params->get('category_view_show_product_delivery_time',1) == 1) {
                     $product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
@@ -191,7 +157,6 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 	public function onBeforeDisplaywtjshoppingfavoritesView($event): void
     {
         $view = $event->getArgument(0);
-		$jversion = new Version();
 		$product_info = array();
 		if(count((array)$view->rows) > 0) {
 			foreach($view->rows as $product) {
@@ -212,30 +177,15 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 					$product_info[$product->product_id]['quantity'] =  $product->product_quantity;
 				}
 				if ($this->params->get('category_view_show_product_old_price',1) == 1) {
-					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-					{
-						$product_info[$product->product_id]['old_price'] = formatprice($product->product_old_price);
-					} else {
-						$product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
-					}
+					$product_info[$product->product_id]['old_price'] = \JSHelper::formatprice($product->product_old_price);
 				}
 
 				if ($this->params->get('category_view_show_product_price',1) == 1 && $this->params->get('category_view_show_product_zero_price',0) == 1) {
-					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-					{
-						$product_info[$product->product_id]['price'] = formatprice($product->product_price);
-					} else {
-						$product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
-					}
+					$product_info[$product->product_id]['price'] = \JSHelper::formatprice($product->product_price);
 				}
 
 				if ($this->params->get('category_view_show_product_min_price',1) == 1) {
-					if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-					{
-						$product_info[$product->product_id]['min_price'] = formatprice($product->min_price);
-					} else {
-						$product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
-					}
+					$product_info[$product->product_id]['min_price'] = \JSHelper::formatprice($product->min_price);
 				}
 				if ($this->params->get('category_view_show_product_delivery_time',1) == 1) {
 					$product_info[$product->product_id]['delivery_time'] =  $product->delivery_time;
