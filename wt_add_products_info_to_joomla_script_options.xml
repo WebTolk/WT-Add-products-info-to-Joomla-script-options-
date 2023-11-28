@@ -193,6 +193,7 @@
 		</fields>
 	</config>
 	<updateservers>
-        <server type="extension" name="WebTolkUpdateServer"><![CDATA[	https://web-tolk.ru/component/swjprojects/jupdate.html?element=wt_add_products_info_to_joomla_script_options ]]></server>
-    </updateservers>
+      		<server type="extension" priority="1" name="WT Add products info to Joomla script options updates">https://web-tolk.ru/component/swjprojects/jupdate?element=wt_add_products_info_to_joomla_script_options</server>
+	</updateservers>
+	<changelogurl>https://web-tolk.ru/jchangelog?element=wt_add_products_info_to_joomla_script_options</changelogurl>
 </extension>
