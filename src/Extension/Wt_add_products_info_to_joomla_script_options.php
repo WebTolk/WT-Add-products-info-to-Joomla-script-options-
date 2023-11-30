@@ -10,7 +10,6 @@ namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Document\Document;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\Event\SubscriberInterface;
 
@@ -100,7 +99,7 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
 			$product->product_id => $product_info
 		);
 
-        /* @var $doc Document */
+        /* @var $doc Joomla\CMS\Document\Document */
 		$doc = $this->getApplication()->getDocument();
 		$doc->addScriptOptions('jshop_products_details', $product_array);
 	}
@@ -118,7 +117,7 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
         /* @var $productlist object JoomShopping product list view */
         $productlist = $event->getArgument(1);
 
-		$product_info = array();
+		$product_info = [];
 		if (count((array)$productlist->products) > 0) {
             foreach($productlist->products as $product) {
 
@@ -169,7 +168,8 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
     {
         /* @var $view object Объект со списком товаров, общим количеством и т.д. */
         $view = $event->getArgument(0);
-		$product_info = array();
+
+		$product_info = [];
 		if(count((array)$view->rows) > 0) {
 			foreach($view->rows as $product) {
 

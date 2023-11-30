@@ -10,7 +10,6 @@ namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Document\Document;
 use Joomla\CMS\Form\Field\NoteField;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Factory;
@@ -45,7 +44,7 @@ class PlugininfoField extends NoteField
         $folder = 	$data->get('folder');
         $wt_plugin_info = simplexml_load_file(JPATH_SITE."/plugins/".$folder."/".$element."/".$element.".xml");
 
-        /* @var $doc Document */
+        /* @var $doc Joomla\CMS\Document\Document */
         $doc = Factory::getApplication()->getDocument();
         $doc->getWebAssetManager()->addInlineStyle('
             #web_tolk_link {
