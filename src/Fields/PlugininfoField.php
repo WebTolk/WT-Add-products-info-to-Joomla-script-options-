@@ -1,9 +1,11 @@
 <?php
 /**
- * @package    WT Add products info to Joomla script options
- * @author     Sergey Tolkachyov info@web-tolk.ru https://web-tolk.ru
- * @copyright  Copyright (C) 2023 Sergey Tolkachyov. All rights reserved.
- * @license    GNU General Public License version 3 or later
+ * @package       WT Add products info to Joomla script options
+ * @version       2.0.0
+ * @Author        Sergey Tolkachyov, https://web-tolk.ru
+ * @copyright     Copyright (C) 2023 Sergey Tolkachyov
+ * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
+ * @since         1.0.0
  */
 
 namespace Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options\Fields;

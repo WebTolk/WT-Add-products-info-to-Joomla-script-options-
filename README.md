@@ -1,4 +1,5 @@
-[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github) [![Status](https://img.shields.io/badge/Status-stable-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.x-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]()  [![JoomShoppingVersion](https://img.shields.io/badge/JoomShopping-5.x-important.svg)]() [![DocumentationRus](https://img.shields.io/badge/Documentation-rus-blue.svg)](https://web-tolk.ru/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github) [![DocumentationEng](https://img.shields.io/badge/Documentation-eng-blueviolet.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options.html?utm_source=github)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options?utm_source=github) [![Status](https://img.shields.io/badge/Status-stable-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.x-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![JoomShoppingVersion](https://img.shields.io/badge/JoomShopping-5.x-important.svg)]() [![DocumentationRus](https://img.shields.io/badge/Documentation-rus-blue.svg)](https://web-tolk.ru/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options?utm_source=github) [![DocumentationEng](https://img.shields.io/badge/Documentation-eng-blueviolet.svg)](https://web-tolk.ru/en/dev/joomla-plugins/wt-add-products-info-to-joomla-script-options?utm_source=github)
+
 # WT Add products info to Joomla script options
 Adds JoomShopping product info to Joomla script options. You can access it from javascript via `Joomla.getOptions('jshop_products_details').` Joomla 4 and Joomla 5 (and above) support. **Warning! Joomla 3 is no longer supported!**
 
@@ -12,8 +13,8 @@ To create feedback forms in the online store on Joomla JoomShopping, such as:
 - And so on - for all Joomla feedback forms, where you need to specify information about the product.
 
 This plugin is necessary for those who use the professional plugin feedback form - [Radical Form on JED](https://extensions.joomla.org/extension/radicalform/), [Radical Form on GitHub](https://github.com/Delo-Design/radicalform) - in their work. 
-[Tutorial 1 (Russiain language)](https://web-tolk.ru/blog/razrabotka-form-obratnoj-svyazi-dlya-magazinov-na-joomla-3.html?utm_source=github)
-[Tutorial 2 (Russiain language)](https://web-tolk.ru/blog/integratsiya-form-obratnoj-svyazi-i-bitriks24-na-sajte-joomla.html?utm_source=github)
+[Tutorial 1 (Russiain language)](https://web-tolk.ru/blog/razrabotka-form-obratnoj-svyazi-dlya-magazinov-na-joomla-3?utm_source=github)
+[Tutorial 2 (Russiain language)](https://web-tolk.ru/blog/integratsiya-form-obratnoj-svyazi-i-bitriks24-na-sajte-joomla?utm_source=github)
 
 # Why it?
 In order to make a beautiful and informative lead magnet, a feedback form that specifies the specific product in question.
