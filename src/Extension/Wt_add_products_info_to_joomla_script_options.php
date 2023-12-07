@@ -30,7 +30,7 @@ use Joomla\Event\SubscriberInterface;
 class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements SubscriberInterface
 {
 
-	protected $autoloadLanguage = true;
+    protected $autoloadLanguage = true;
 
     protected $allowLegacyListeners = false;
 
@@ -120,7 +120,7 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
         $productlist = $event->getArgument(1);
 
 		$product_info = [];
-		if (count((array)$productlist->products) > 0) {
+		if (property_exists($productlist,'products') && count((array)$productlist->products) > 0) {
             foreach($productlist->products as $product) {
 
                 if ($this->params->get('category_view_show_product_name',1) == 1) {
@@ -155,14 +155,14 @@ class Wt_add_products_info_to_joomla_script_options extends CMSPlugin implements
             }
 
             $this->getApplication()->getDocument()->addScriptOptions('jshop_products_details', $product_info);
-		}//if $productlist->products > 0
+		}
 	}
 
 	/**
 	 * Обработка избранных товаров WT JoomShopping Favorites
 	 * @param $event object событие отображения списка товаров
 	 *
-     * @return void
+	 * @return void
 	 *
 	 * @since 1.0.1
 	 */
