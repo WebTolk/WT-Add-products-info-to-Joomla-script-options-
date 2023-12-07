@@ -2,12 +2,12 @@
 <extension type="plugin" group="jshoppingproducts" method="upgrade">
     <name>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS</name>
     <author>Sergey Tolkachyov</author>
-    <creationDate>November 2023</creationDate>
+    <creationDate>December 2023</creationDate>
     <copyright>(c) 2023 Sergey Tolkachyov</copyright>
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>info@web-tolk.ru</authorEmail>
     <authorUrl>https://web-tolk.ru</authorUrl>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <description>PLG_WT_ADD_PRODUCTS_INFO_TO_JOOMLA_SCRIPT_OPTIONS_DESC</description>
     <scriptfile>script.php</scriptfile>
     <namespace path="src">Joomla\Plugin\Jshoppingproducts\Wt_add_products_info_to_joomla_script_options</namespace>
